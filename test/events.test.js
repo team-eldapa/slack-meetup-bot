@@ -4,10 +4,13 @@ const request = require('supertest');
 const app = require('../lib/app');
 const connect = require('../lib/utils/connect');
 const mongoose = require('mongoose');
+const Event = require('../lib/models/Event');
 
 describe('app routes', () => {
-  beforeAll(() => {
+  let events = [];
+  beforeAll(async() => {
     connect();
+    events = await Event.find();
   });
 
   afterAll(() => {
@@ -28,6 +31,23 @@ describe('app routes', () => {
             signUpUrl: expect.any(String),
             title: expect.any(String)
           });
+        });
+      });
+  });
+
+  it('gets an event by its Id with GET:id', () => {
+    const event = events[0];
+    return request(app)
+      .get(`/api/v1/events/${event._id}`)
+      .then(res => {
+        expect(res.body).toEqual({
+          _id: event._id.toString(),
+          startTime: event.startTime,
+          endTime: event.endTime,
+          eventId: event.eventId,
+          description: event.description,
+          signUpUrl: event.signUpUrl,
+          title: event.title
         });
       });
   });
