@@ -6,6 +6,7 @@ const eventScraper = require('./lib/services/events-scrapper');
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
 const seedData = () => {
+  mongoose.connection.dropDatabase();
   return eventScraper()
     .then(events => Event.create(events))
     .then(() => console.log('done'))
@@ -14,4 +15,3 @@ const seedData = () => {
 };
 
 seedData();
-
