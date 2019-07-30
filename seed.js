@@ -1,6 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
-const Event = require('./lib/models/events');
+const Event = require('./lib/models/Event');
 // const User = require('./lib/models/user');
 const eventScraper = require('./lib/services/events-scrapper');
 
