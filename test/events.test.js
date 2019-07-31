@@ -8,6 +8,7 @@ describe('app routes', () => {
     return request(app)
       .get('/api/v1/events')
       .then(res => {
+        console.log(res.body);
         res.body.forEach(event => {
           expect(event).toEqual({
             _id: expect.any(String),
