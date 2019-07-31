@@ -58,7 +58,6 @@ describe('app routes', () => {
             title: expect.any(String)
           });
         });
-        expect(res.body).toHaveLength(5);
       });
   });
 });
