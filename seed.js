@@ -1,7 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Event = require('./lib/models/Event');
-// const User = require('./lib/models/user');
 const eventScraper = require('./lib/services/events-scrapper');
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
@@ -17,4 +16,4 @@ const seedData = async() => {
     .catch(console.log);
 };
 
-seedData();
+module.exports = seedData;
