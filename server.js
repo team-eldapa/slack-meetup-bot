@@ -7,7 +7,7 @@ const app = require('./lib/app');
 
 const PORT = process.env.PORT || 7890;
 
-cron.schedule('* * * * *', function(){
+cron.schedule('0 */12 * * *', function(){
   console.log('Server just scraped calagator.');
   seedData();
 });
