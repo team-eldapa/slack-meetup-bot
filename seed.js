@@ -10,8 +10,10 @@ const seedData = async() => {
   await mongoose.connection.dropCollection('events');
   return eventScraper()
     .then(events => Event.create(events))
+    // eslint-disable-next-line no-console
     .then(() => console.log('done'))
     .finally(() => mongoose.connection.close())
+    // eslint-disable-next-line no-console
     .catch(console.log);
 };
 
