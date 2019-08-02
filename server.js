@@ -1,5 +1,6 @@
 require('dotenv').config();
 require('./lib/utils/connect')();
+require('./lib/slackbot/bot');
 const cron = require('node-cron');
 const seedData = require('./seed');
 
