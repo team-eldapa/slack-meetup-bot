@@ -5,14 +5,18 @@ const eventScraper = require('./lib/services/events-scrapper');
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true });
 
+
 const seedData = async() => {
-  await mongoose.connection.dropCollection('events');
+  try {
+    await mongoose.connection.dropCollection('events');
+  } catch(e) {
+    console.log(e);
+  }
+
   return eventScraper()
     .then(events => Event.create(events))
     // eslint-disable-next-line no-console
-    .then(() => console.log('done'))
-    .finally(() => mongoose.connection.close())
-    // eslint-disable-next-line no-console
+    .then(() => console.log('done, scraped calagator and seeded db'))
     .catch(console.log);
 };
 
