@@ -1,6 +1,5 @@
 require('dotenv').config();
 require('./lib/utils/connect')();
-// require('./lib/slackbot/bot');
 require('./lib/slackbot/botActions');
 const cron = require('node-cron');
 const seedData = require('./seed');
@@ -8,6 +7,8 @@ const seedData = require('./seed');
 const app = require('./lib/app');
 
 const PORT = process.env.PORT || 7890;
+
+seedData();
 
 cron.schedule('0 */12 * * *', function(){
   console.log('Server just scraped calagator.');
