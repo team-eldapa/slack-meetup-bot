@@ -1,5 +1,7 @@
 # slack-meetup-bot
-Tech Used: Node.js, MongoDB w/ Mongoose, ExpressJS, Cheerio, Cron Jobs, TDD w/ Jest
+##Tech Used: Node.js, MongoDB w/ Mongoose, ExpressJS, Cheerio, Cron Jobs, TDD w/ Jest
+
+### Completed in a one week long sprint!
 
 Slack channel bot for locating code meetups in Portland.
 
