@@ -1,4 +1,6 @@
 # slack-meetup-bot
+Tech Used: Node.js, MongoDB w/ Mongoose, ExpressJS, Cheerio, Cron Jobs, TDD w/ Jest
+
 Slack channel bot for locating code meetups in Portland.
 
 The following command prompts are at your disposal:
